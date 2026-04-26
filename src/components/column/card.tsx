@@ -9,7 +9,7 @@ import { safeParseString } from "~/utils"
 export interface ItemsProps extends React.HTMLAttributes<HTMLDivElement> {
   id: SourceID
   /**
-   * 是否显示透明度，拖动时原卡片的样式
+   * Show transparency when dragging the original card style
    */
   isDragging?: boolean
   setHandleRef?: (ref: HTMLElement | null) => void
@@ -64,7 +64,7 @@ function NewsCard({ id, setHandleRef }: NewsCardProps) {
         if (jwt) headers.Authorization = `Bearer ${jwt}`
         refetchSources.delete(id)
       } else if (cacheSources.has(id)) {
-        // wait animation
+        // Wait for animation
         await delay(200)
         return cacheSources.get(id)
       }
@@ -141,7 +141,7 @@ function NewsCard({ id, setHandleRef }: NewsCardProps) {
             className={$("btn", isFocused ? "i-ph:star-fill" : "i-ph:star-duotone")}
             onClick={toggleFocus}
           />
-          {/* firefox cannot drag a button */}
+          {/* Firefox cannot drag a button */}
           {setHandleRef && (
             <div
               ref={setHandleRef}
@@ -172,9 +172,9 @@ function NewsCard({ id, setHandleRef }: NewsCardProps) {
 
 function UpdatedTime({ isError, updatedTime }: { updatedTime: any, isError: boolean }) {
   const relativeTime = useRelativeTime(updatedTime ?? "")
-  if (relativeTime) return `${relativeTime}更新`
-  if (isError) return "获取失败"
-  return "加载中..."
+  if (relativeTime) return `${relativeTime} ago`
+  if (isError) return "Failed to fetch"
+  return "Loading..."
 }
 
 function DiffNumber({ diff }: { diff: number }) {
