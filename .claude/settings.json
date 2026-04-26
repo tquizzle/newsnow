@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:www.youtube.com)",
+      "Bash(pnpm install *)",
+      "Bash(pnpm presource *)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(npx eslint *)",
+      "Bash(git stash *)"
+    ]
+  }
+}

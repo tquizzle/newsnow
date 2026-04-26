@@ -1,21 +1,25 @@
 services:
   newsnow:
-    image: ghcr.io/ourongxing/newsnow:latest
+#    image: ghcr.io/ourongxing/newsnow:latest
+    build: .
+    platform: linux/amd64
     container_name: newsnow
     ports:
-      - '4444:4444'
+      - ${PORT}:4444
+    env_file:
+      - .env.server
     volumes:
       - newsnow_data:/usr/app/.data
     environment:
       - HOST=0.0.0.0
-      - PORT=4444
+      - PORT=${PORT}
       - NODE_ENV=production
-      - G_CLIENT_ID=
-      - G_CLIENT_SECRET=
-      - JWT_SECRET=
+      - G_CLIENT_ID=${G_CLIENT_ID}
+      - G_CLIENT_SECRET=${G_CLIENT_SECRET}
+      - JWT_SECRET=${JWT_SECRET}
       - INIT_TABLE=true
       - ENABLE_CACHE=true
-      - PRODUCTHUNT_API_TOKEN=
+      - PRODUCTHUNT_API_TOKEN=${PRODUCTHUNT_API_TOKEN}
 
 volumes:
   newsnow_data:
