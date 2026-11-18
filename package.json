@@ -43,7 +43,7 @@
     "cmdk": "^1.1.1",
     "consola": "^3.4.2",
     "cookie-es": "^2.0.0",
-    "dayjs": "1.11.13",
+    "dayjs": "1.11.23",
     "db0": "^0.3.1",
     "defu": "^6.1.4",
     "fast-xml-parser": "^5.4.1",
@@ -124,7 +124,7 @@
   },
   "resolutions": {
     "cross-spawn": ">=7.0.6",
-    "dayjs": "1.11.13",
+    "dayjs": "1.11.23",
     "db0": "^0.3.4",
     "nitropack": "npm:nitro-go@0.0.3",
     "picomatch": "^4.0.3",
